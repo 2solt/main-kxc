@@ -1,0 +1,29 @@
+envVars:
+  - name: AUX_URL
+    value: "http://dev-aux.dev-aux.svc.cluster.local:8081"
+image:
+  repository: imgs/main
+  pullPolicy: IfNotPresent
+  tag: "9261133f2c4492aa55d220041ca42236e48b3160"
+resources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 50m
+    memory: 32Mi
+livenessProbe:
+  httpGet:
+    path: /livez
+    port: http
+readinessProbe:
+  httpGet:
+    path: /livez
+    port: http
+service:
+  port: 8080
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
