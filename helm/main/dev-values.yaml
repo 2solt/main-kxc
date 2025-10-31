@@ -4,7 +4,7 @@ envVars:
 image:
   repository: imgs/main
   pullPolicy: IfNotPresent
-  tag: "9261133f2c4492aa55d220041ca42236e48b3160"
+  tag: "50d3f027b0305870577be4c0ce93515076bc8527"
 resources:
   limits:
     cpu: 100m
